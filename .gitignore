@@ -1,0 +1,10 @@
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+
+# Comprimidos de backup
+*.zip

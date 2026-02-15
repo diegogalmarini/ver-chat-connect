@@ -1,0 +1,37 @@
+name: Build & Release Plugin ZIP
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create Plugin ZIP
+        run: |
+          PLUGIN_NAME="ver-wa-connect"
+          mkdir -p dist/$PLUGIN_NAME
+          cp ver-wa-connect.php dist/$PLUGIN_NAME/
+          cp readme.txt dist/$PLUGIN_NAME/
+          cp -r assets dist/$PLUGIN_NAME/
+          cd dist
+          zip -r ../$PLUGIN_NAME.zip $PLUGIN_NAME
+          cd ..
+
+      - name: Upload to GitHub Releases
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ver-wa-connect.zip
+          name: Release ${{ github.ref_name }}
+          body: "Versión simplificada y estable ${{ github.ref_name }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
