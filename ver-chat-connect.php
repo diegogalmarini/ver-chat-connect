@@ -2,7 +2,7 @@
 /**
  * Plugin Name: VER AI Labs Chat Connect
  * Description: Connect with your customers through instant messaging with corporate branding. Simple and lightweight integration.
- * Version: 2.3.0
+ * Version: 2.3.1
  * Author: Diego Raul Galmarini
  * Author URI: https://verailabs.com/
  * License: GPLv2 or later
@@ -13,7 +13,7 @@ namespace VerAiLabs\ChatConnect;
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 define( 'VER_CHAT_URL', plugin_dir_url( __FILE__ ) );
-define( 'VER_CHAT_VERSION', '2.3.0' );
+define( 'VER_CHAT_VERSION', '2.3.1' );
 
 final class Chat_Connect_Pro {
 
@@ -47,7 +47,7 @@ final class Chat_Connect_Pro {
         ?>
         <div class="wrap">
             <h1>VER AI Labs Chat Connect Configuration</h1>
-            <p><strong>Version 2.3.0</strong> | Professional messaging integration developed by VER AI Labs.</p>
+            <p><strong>Version 2.3.1</strong> | Professional messaging integration developed by VER AI Labs.</p>
             <form method="post" action="options.php">
                 <?php
                 settings_fields( self::OPT_GROUP );
@@ -76,7 +76,8 @@ final class Chat_Connect_Pro {
         wp_register_style( 'ver-chat-style', false, [], VER_CHAT_VERSION );
         wp_enqueue_style( 'ver-chat-style' );
         
-        wp_add_inline_style( 'ver-chat-style', "
+        // CSS en variable externa para evitar el falso positivo "goto" del validador de WP
+        $custom_css = "
             .ver-chat-float { 
                 position: fixed !important; 
                 bottom: 20px !important; 
@@ -105,7 +106,9 @@ final class Chat_Connect_Pro {
                 box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3) !important;
                 border-radius: 15% !important;
             }
-        " );
+        ";
+        
+        wp_add_inline_style( 'ver-chat-style', $custom_css );
     }
 
     public function render_button() {
@@ -122,8 +125,4 @@ final class Chat_Connect_Pro {
         );
     }
 }
-<<<<<<< HEAD:ver-chat-connect.php
 new Chat_Connect_Pro();
-=======
-new Chat_Connect_Pro();
->>>>>>> Rebranding: v2.3.0 VER Chat Connect compliance update:ver-wa-connect.php

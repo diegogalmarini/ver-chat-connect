@@ -4,7 +4,7 @@ Donate link: https://verailabs.com/
 Tags: chat, messaging, ver ai labs, contact
 Requires at least: 6.0
 Tested up to: 6.9
-Stable tag: 2.3.0
+Stable tag: 2.3.1
 License: GPLv2 or later
 
 A professional and lightweight messaging integration tool for agency clients.
@@ -20,11 +20,11 @@ This plugin allows agency clients to integrate a direct and optimized contact bu
 3. Go to Settings > VER Chat Connect to configure your details.
 
 == Changelog ==
+= 2.3.1 =
+* Fix: Refactored inline CSS to resolve false positive "goto" error in automated scanning.
+* Optimization: Improved resource versioning for better cache management.
+
 = 2.3.0 =
 * Complete rebranding to "Chat Connect" to comply with trademark policies.
 * Full documentation and interface translation to English.
-<<<<<<< HEAD
 * Version bumped for better browser cache management.
-=======
-* Version bumped for better browser cache management.
->>>>>>> Rebranding: v2.3.0 VER Chat Connect compliance update

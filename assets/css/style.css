@@ -1,0 +1,28 @@
+.ver-chat-float { 
+    position: fixed !important; 
+    bottom: 20px !important; 
+    right: 20px !important; 
+    width: 60px !important; 
+    height: 60px !important; 
+    z-index: 999999 !important;
+    background: transparent !important;
+    display: flex !important; 
+    align-items: center !important; 
+    justify-content: center !important;
+    transition: transform 0.3s ease !important;
+}
+.ver-chat-float:hover { 
+    transform: scale(1.05) !important; 
+}
+.ver-chat-float img { 
+    width: 70% !important;
+    height: 70% !important;
+    object-fit: contain !important;
+    display: block !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 15% !important;
+}
