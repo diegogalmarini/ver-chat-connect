@@ -18,9 +18,9 @@ jobs:
 
       - name: Create Plugin ZIP
         run: |
-          PLUGIN_NAME="ver-wa-connect"
+          PLUGIN_NAME="ver-chat-connect"
           mkdir -p dist/$PLUGIN_NAME
-          cp ver-wa-connect.php dist/$PLUGIN_NAME/
+          cp ver-chat-connect.php dist/$PLUGIN_NAME/
           cp readme.txt dist/$PLUGIN_NAME/
           cp -r assets dist/$PLUGIN_NAME/
           cd dist
@@ -30,7 +30,7 @@ jobs:
       - name: Upload to GitHub Releases
         uses: softprops/action-gh-release@v1
         with:
-          files: ver-wa-connect.zip
+          files: ver-chat-connect.zip
           name: Release ${{ github.ref_name }}
           body: "Versión simplificada y estable ${{ github.ref_name }}"
         env:
